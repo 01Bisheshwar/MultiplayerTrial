@@ -84,7 +84,7 @@
         .then(response => response.arrayBuffer())
         .then(compressedData => {
             var decompressedData = pako.inflate(compressedData);
-            var blob = new Blob([decompressedData]);
+            var blob = new Blob([decompressedData], { type: 'application/wasm' });
             var url = URL.createObjectURL(blob);
             config.codeUrl = url;
 
